@@ -11,3 +11,11 @@ class Cliente
     @tempo_de_saida = nil   # Quando o atendimento realmente termina
   end
 end
+class FilaDeAtendimento
+  attr_accessor :fila, :tempo_atual, :clientes_atendidos
+
+  def initialize
+    @fila = []
+    @tempo_atual = 0
+    @clientes_atendidos = []
+  end
