@@ -19,3 +19,8 @@ class FilaDeAtendimento
     @tempo_atual = 0
     @clientes_atendidos = []
   end
+
+   # Adiciona clientes na fila
+   def adicionar_cliente(cliente)
+    @fila << cliente
+  end
