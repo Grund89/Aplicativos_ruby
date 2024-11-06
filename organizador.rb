@@ -21,6 +21,17 @@ class FilaDeAtendimento
   end
 
    # Adiciona clientes na fila
-   def adicionar_cliente(cliente)
+  def adicionar_cliente(cliente)
     @fila << cliente
   end
+
+ # Processa a fila de atendimento
+  def processar_fila
+    until @fila.empty?
+    cliente = @fila.shift
+    cliente.tempo_de_inicio = [@tempo_atual, cliente.tempo_de_chegada].max
+    cliente.tempo_de_saida = cliente.tempo_de_inicio + cliente.tempo_de_atendimento
+    @tempo_atual = cliente.tempo_de_saida
+    @clientes_atendidos << cliente
+  end
+end
