@@ -11,6 +11,7 @@ class Cliente
     @tempo_de_saida = nil   # Quando o atendimento realmente termina
   end
 end
+
 class FilaDeAtendimento
   attr_accessor :fila, :tempo_atual, :clientes_atendidos
 
@@ -33,5 +34,13 @@ class FilaDeAtendimento
     cliente.tempo_de_saida = cliente.tempo_de_inicio + cliente.tempo_de_atendimento
     @tempo_atual = cliente.tempo_de_saida
     @clientes_atendidos << cliente
+  end
+
+  def gerar_tempo_de_chegada
+    rand(1..3)  # Gera um tempo aleatório para a chegada do próximo cliente
+  end
+
+  def gerar_tempo_de_atendimento
+    rand(1..5)  # Gera um tempo aleatório para o atendimento de um cliente
   end
 end
