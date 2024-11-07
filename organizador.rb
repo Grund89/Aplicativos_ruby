@@ -59,3 +59,15 @@ class Estatisticas
       total_sistema += tempo_sistema
       ocupacao_servidor += cliente.tempo_de_atendimento
     end
+
+    media_espera = total_espera.to_f / fila.clientes_atendidos.size
+    media_sistema = total_sistema.to_f / fila.clientes_atendidos.size
+    taxa_ocupacao = ocupacao_servidor.to_f / fila.tempo_atual * 100
+
+    {
+      media_espera: media_espera,
+      media_sistema: media_sistema,
+      taxa_ocupacao: taxa_ocupacao
+    }
+  end
+end
