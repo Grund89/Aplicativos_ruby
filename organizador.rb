@@ -84,3 +84,9 @@ total_clientes.times do |i|
   cliente = Cliente.new(i + 1, tempo_de_chegada, tempo_de_atendimento)
   fila.adicionar_cliente(cliente)
 end
+
+# Calcular e exibir as estatísticas
+estatisticas = Estatisticas.calcular(fila)
+puts "Tempo médio de espera: #{estatisticas[:media_espera].round(2)} minutos"
+puts "Tempo médio no sistema: #{estatisticas[:media_sistema].round(2)} minutos"
+puts "Taxa de ocupação do servidor: #{estatisticas[:taxa_ocupacao].round(2)}%"
