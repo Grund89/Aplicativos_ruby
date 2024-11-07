@@ -71,3 +71,8 @@ class Estatisticas
     }
   end
 end
+
+# Configuração inicial
+fila = FilaDeAtendimento.new
+total_clientes = 10  # Número de clientes para a simulação
+tempo_de_chegada = 0
