@@ -44,3 +44,18 @@ class FilaDeAtendimento
     rand(1..5)  # Gera um tempo aleatório para o atendimento de um cliente
   end
 end
+
+class Estatisticas
+  def self.calcular(fila)
+    total_espera = 0
+    total_sistema = 0
+    ocupacao_servidor = 0
+
+    fila.clientes_atendidos.each do |cliente|
+      tempo_espera = cliente.tempo_de_inicio - cliente.tempo_de_chegada
+      tempo_sistema = cliente.tempo_de_saida - cliente.tempo_de_chegada
+
+      total_espera += tempo_espera
+      total_sistema += tempo_sistema
+      ocupacao_servidor += cliente.tempo_de_atendimento
+    end
