@@ -76,3 +76,11 @@ end
 fila = FilaDeAtendimento.new
 total_clientes = 10  # Número de clientes para a simulação
 tempo_de_chegada = 0
+
+# Adicionando clientes à fila
+total_clientes.times do |i|
+  tempo_de_chegada += gerar_tempo_de_chegada
+  tempo_de_atendimento = gerar_tempo_de_atendimento
+  cliente = Cliente.new(i + 1, tempo_de_chegada, tempo_de_atendimento)
+  fila.adicionar_cliente(cliente)
+end
